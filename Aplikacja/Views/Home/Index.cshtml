@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Strona</title>
+</head>
+<body>
+    <div> 
+        @ViewBag.Greeting, świecie (z widoku)
+        <p>
+            Zapraszam na wspaniałe przyjęcie.<br />
+        </p>
+        @Html.ActionLink("Wyślij","RsvpFrom")
+    </div>
+</body>
+</html>

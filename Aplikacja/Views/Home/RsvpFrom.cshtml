@@ -1,0 +1,34 @@
+﻿@model Aplikacja.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpFrom</title>
+</head>
+<body>
+
+    @using (Html.BeginForm())
+    {
+        <p>Imie i nazwisko: @Html.TextBoxFor(x => x.Name)</p>
+        <p>Twój e-mail: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Twój telefon: @Html.TextBoxFor(x => x.Phone)</p>
+
+        <p>
+            Czy przyjdziesz na przyjecie?
+            @Html.DropDownListFor(x => x.WillAttend, new[]{
+           new SelectListItem() {Text = "tak, będę", Value = bool.TrueString},
+           new SelectListItem() {Text = "Nie, bede", Value = bool.FalseString }
+    }     ,"Wybierz opcje")
+        </p>
+        <Input Type="submit" value="wyślij" />
+
+    }
+
+</body>
+</html>
