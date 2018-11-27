@@ -8,28 +8,45 @@
 
 <html>
 <head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="~/content/style.css" /> 
+    <link rel="stylesheet" type="text/css" href="~/content/style.css" />
     <title>RsvpFrom</title>
 </head>
 <body>
-
-    @using (Html.BeginForm())
-    {
-        <p>Imie i nazwisko: @Html.TextBoxFor(x => x.Name)</p>
-        <p>Twój e-mail: @Html.TextBoxFor(x => x.Email)</p>
-        <p>Twój telefon: @Html.TextBoxFor(x => x.Phone)</p>
-
-        <p>
-            Czy przyjdziesz na przyjecie?
-            @Html.DropDownListFor(x => x.WillAttend, new[]{
-           new SelectListItem() {Text = "tak, będę", Value = bool.TrueString},
-           new SelectListItem() {Text = "Nie, bede", Value = bool.FalseString }
-    }     ,"Wybierz opcje")
-        </p>
-        <Input Type="submit" value="wyślij" />
-
-    }
-
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>RSVP</h4></div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+               @Html.ValidationSummary()
+                <div class="form-group">
+                    <label>Imię i Nazwisko:</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "Form-Control" })
+                </div>
+                <div class="form-group">
+                    <label>Twój telefon:</label>
+                    @Html.TextBoxFor(x => x.Phone, new { @class = "from-Control" })
+                </div>
+                <div> class="form-group"
+                     <label>Czy przyjedziesz ma przyjęcie?</label>
+            @Html.DropDownListFor(x => x.WillAttend, new[] {new SelectListItem()   
+       {
+           Text = "Tak, przyjadę.",
+           Value = bool.TrueString
+       },
+         new SelectListItem()
+         {
+             Text = "Nie,nie przyjdę.",
+             Value = bool.FalseString
+         }, "Wybierz opcję", new { @class = "form-control" })
+            </div>
+            <div class="taxt-center">
+            <input class="btn btn-success" type="submit" value="Wyślij RSVP" />
+            </div>
+            }
+        </div>
+    </div>
 </body>
 </html>

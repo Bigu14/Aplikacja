@@ -13,7 +13,7 @@ namespace Aplikacja.Controllers
         public ActionResult Index()
         {
             int hour = DateTime.Now.Hour;
-            ViewData["greeting"] = hour < 17 ? "dzień dobry" : "Dobry wieczór";
+            ViewData["greeting"] = hour < 17 ? "Dzień dobry !" : "Dobry wieczór";
             return View();
         }
         
