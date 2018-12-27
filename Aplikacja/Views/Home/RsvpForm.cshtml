@@ -16,33 +16,38 @@
 </head>
 <body>
     <div class="panel panel-success">
-        <div class="panel-heading text-center"><h4>RSVP</h4></div>
+        <div class="panel-heading text-center">
+            <h4>RSVP</h4>
+        </div>
         <div class="panel-body">
-          @using (Html.BeginForm())
-          {
+
+            @using (Html.BeginForm())
+            {
                 @Html.ValidationSummary()
-            <div class="form-group">
+                <div class="form-group">
                     <label>Imię i Nazwisko:</label>
                     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-            </div>
-             <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label>Twój e-mail:</label>
                     @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
-             </div>
-              <div class="form-group">
+                </div>
+                <div class="form-group">
                     <label>Twój telefon:</label>
                     @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
-              </div>
-               <div class="form-group">
-                <label>Czy przyjdziesz na przyjęcie?</label>
+                </div>
+                <div class="form-group">
+                    <label>Czy przyjdziesz na przyjęcie?</label>
                     @Html.DropDownListFor(x => x.WillAttend, new[] {
                     new SelectListItem() {Text = "Tak, przyjadę", Value = bool.TrueString},
                     new SelectListItem() {Text = "Nie, nie przyjdę.", Value =bool.FalseString} } )
 
-               </div>
-          }, 
-            <div>
-                <input class="btn btn-success" type="submit" value="Wyślij RSVP" />
-            </div>
+                </div>
+                <div>
+                    <input class="btn btn-success" type="submit" value="Wyślij RSVP" />
+                </div>
+            }
+        </div>
+    </div>
 </body>
 </html>

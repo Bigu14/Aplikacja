@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Aplikacja.Models;
-
 
 namespace Aplikacja.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
             int hour = DateTime.Now.Hour;
@@ -18,10 +15,11 @@ namespace Aplikacja.Controllers
         }
         
         [HttpGet]
-        public ViewResult RsvpFrom()
+        public ViewResult RsvpForm()
         {
             return View() ;
         }
+
         [HttpPost]
         public ViewResult RsvpForm(GuestResponse guestResponse)
 
